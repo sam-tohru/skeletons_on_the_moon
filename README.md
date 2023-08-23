@@ -11,3 +11,5 @@ Because of the 2 colour limit & time-limit I had to stick to simplicity both on 
 It was allowed to modulate the transparency / alpha of sprites using code, which is what I did to achieve different shades, so each sprite is made up of 3 layers ( full outline, and different inside-transparency layers ) and I did change the alpha of the inside layers in code in godot ( using set_modulate and adjusting the alpha value )
 
 There's a simple day-night cycle which is just a timer, when the timer goes-off the day-floor (white) will fade out (using set_modulate and tweens to fade out opacity) and the night-floor wiill be visible, this creates a smooth transition between the two-states. And at night skeletons will spawn when the player is not in the light of their base.
+
+I had planned on adding more survival-game elements, such as keeping up with oxygen levels, building the player base & base defence, however the 1-week limit on the game-jam means I had to scale down during the final days, I had set up a turret that the player could place down to attack skeletons, but ran out of time to fine-tune it.
