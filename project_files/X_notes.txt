@@ -1,0 +1,2 @@
+This file contains a very basic 2D setup, with a main menu
+Just use this for quick-starts to game-jams really

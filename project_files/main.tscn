@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://tg31ysngayvs"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_rwe6y"]
+[ext_resource type="PackedScene" uid="uid://bxe5tyj2o48ev" path="res://world/world_main.tscn" id="4_6s347"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_rwe6y")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -5
+offset_left = -549.0
+offset_top = -332.0
+offset_right = 603.0
+offset_bottom = 377.0
+mouse_filter = 2
+color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+
+[node name="world_main" parent="." instance=ExtResource("4_6s347")]

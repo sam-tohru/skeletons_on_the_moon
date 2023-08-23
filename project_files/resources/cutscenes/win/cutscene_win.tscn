@@ -1,0 +1,179 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxdibt7ta63wt"]
+
+[ext_resource type="Shader" uid="uid://4kijremr5ipd" path="res://world/moon_ground/moon_ground.tres" id="1_gbc16"]
+[ext_resource type="Script" path="res://resources/cutscenes/win/cutscene_win.gd" id="1_wddms"]
+[ext_resource type="Texture2D" uid="uid://3oajpqvyidps" path="res://resources/cutscenes/win/moon_sheet.png" id="2_l1i7v"]
+[ext_resource type="FontFile" uid="uid://cfachjkk2umhy" path="res://resources/fonts/Helvetica Black Condensed.otf" id="4_y2clc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qedh8"]
+shader = ExtResource("1_gbc16")
+
+[sub_resource type="Gradient" id="Gradient_apkwd"]
+colors = PackedColorArray(0.0431373, 0.0470588, 0.0509804, 0.843137, 0.854902, 0.85098, 0.843137, 0.862745)
+
+[node name="cutscene_win" type="Node2D"]
+script = ExtResource("1_wddms")
+
+[node name="DarkRect" type="ColorRect" parent="."]
+z_index = -2
+material = SubResource("ShaderMaterial_qedh8")
+offset_left = -967.0
+offset_top = -668.0
+offset_right = 1021.0
+offset_bottom = 713.0
+mouse_filter = 2
+color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+
+[node name="moon_sheet" type="Sprite2D" parent="."]
+position = Vector2(0, 31)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_l1i7v")
+hframes = 32
+
+[node name="sprite_timer" type="Timer" parent="moon_sheet"]
+wait_time = 0.2
+
+[node name="expl_marker" type="Marker2D" parent="moon_sheet"]
+position = Vector2(-39.3333, -11.3333)
+
+[node name="parts" type="Node2D" parent="."]
+position = Vector2(0, 31)
+
+[node name="expl_4" type="CPUParticles2D" parent="parts"]
+position = Vector2(-11, -50)
+rotation = -1.64934
+scale = Vector2(1.5, 1.5)
+emitting = false
+amount = 112
+lifetime = 10.0
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+local_coords = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+color_ramp = SubResource("Gradient_apkwd")
+
+[node name="expl_2" type="CPUParticles2D" parent="parts"]
+position = Vector2(-4, -42)
+rotation = -1.64934
+scale = Vector2(1.5, 1.5)
+emitting = false
+amount = 112
+lifetime = 10.0
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+local_coords = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+color = Color(0.0431373, 0.0470588, 0.0509804, 0.960784)
+
+[node name="expl_3" type="CPUParticles2D" parent="parts"]
+position = Vector2(-3, -35)
+rotation = -1.64934
+scale = Vector2(1.5, 1.5)
+emitting = false
+amount = 112
+lifetime = 10.0
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+local_coords = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+color = Color(0.0431373, 0.0470588, 0.0509804, 0.960784)
+
+[node name="expl_0" type="CPUParticles2D" parent="parts"]
+position = Vector2(-5, -41)
+rotation = -1.64934
+scale = Vector2(1.5, 1.5)
+emitting = false
+amount = 112
+lifetime = 10.0
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(12, 2)
+gravity = Vector2(0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+color_ramp = SubResource("Gradient_apkwd")
+
+[node name="expl_1" type="CPUParticles2D" parent="parts"]
+position = Vector2(-5, -55)
+rotation = -1.64934
+scale = Vector2(1.5, 1.5)
+emitting = false
+amount = 112
+lifetime = 10.0
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+local_coords = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+color_ramp = SubResource("Gradient_apkwd")
+
+[node name="ShadeRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_qedh8")
+offset_left = 46.0
+offset_top = -47.0
+offset_right = 194.0
+offset_bottom = 98.0
+mouse_filter = 2
+color = Color(0.0431373, 0.0470588, 0.0509804, 0.490196)
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -232.0
+offset_top = -187.0
+offset_right = 235.0
+offset_bottom = -35.0
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("4_y2clc")
+theme_override_font_sizes/font_size = 16
+text = "You have defeated the skeleton queen
+the skeletons have stopped, for now...
+
+unfortunatly you are also trapped on the planet with no supplies :(
+but you are a hero back on your home planet,
+in the never ending war on space skeletons."
+horizontal_alignment = 1
+
+[node name="loc_0" type="Label" parent="Label2"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 310.0
+offset_right = 424.0
+offset_bottom = 329.0
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("4_y2clc")
+theme_override_font_sizes/font_size = 16
+text = "thanks for playing! made in a week for the 1-bit game-jam"
+horizontal_alignment = 1
+
+[connection signal="timeout" from="moon_sheet/sprite_timer" to="." method="_on_sprite_timer_timeout"]
