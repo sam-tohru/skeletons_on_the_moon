@@ -4,7 +4,7 @@ a short adventure game about eradicating the skeletons that live on the moon, I 
 you can play online on itch at: https://kobemano.itch.io/theres-skeletons-on-the-moon
 
 This is a relativly simple game, compared to some of my other game-jam games
-The story's basically you're sent to the moon to deal the the skeleton infestation, the themes for this game-jam was 1-bit (2 colours only), which is why it's set on the moon with skeletons (to keep with black & white colour scheme)
+The story's basically you're sent to the moon to deal the the skeleton infestation, the theme for this game-jam was 1-bit (2 colours only), which is why it's set on the moon with skeletons (to keep with black & white colour scheme)
 
 The gameplay loop is just to discover & collect several crashed space-ships that contain the cargo to destroy the skeleton queen, so pretty simple gameplay
 Because of the 2 colour limit & time-limit I had to stick to simplicity both on graphics & gameplay.
