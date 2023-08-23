@@ -1,5 +1,5 @@
 # skeletons_on_the_moon
-a short adventure game about getting rid of the skeletons that live on the moon, I made in 1 week for a game-jam (in godot 4.0.3)
+a short adventure game about eradicating the skeletons that live on the moon, I made in 1 week for a game-jam (in godot 4.0.3)
 
 you can play online on itch at: https://kobemano.itch.io/theres-skeletons-on-the-moon
 
