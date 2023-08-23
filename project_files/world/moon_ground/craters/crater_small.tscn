@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://yyw6sm2a03ut"]
+
+[ext_resource type="SpriteFrames" uid="uid://cmbfswal51ywy" path="res://world/moon_ground/craters/small/aa_small_in.tres" id="1_52q4x"]
+[ext_resource type="Script" path="res://world/moon_ground/craters/crater.gd" id="1_g0u7g"]
+[ext_resource type="SpriteFrames" uid="uid://w2uewtis7pxi" path="res://world/moon_ground/craters/small/aa_small_out.tres" id="2_rbykh"]
+
+[node name="crater_small" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_g0u7g")
+
+[node name="in" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_52q4x")
+animation = &"1"
+
+[node name="out" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.627451)
+sprite_frames = ExtResource("2_rbykh")
+animation = &"1"

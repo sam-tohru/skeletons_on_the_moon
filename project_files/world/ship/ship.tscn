@@ -1,0 +1,262 @@
+[gd_scene load_steps=11 format=3 uid="uid://c2tvangp6qgsx"]
+
+[ext_resource type="Texture2D" uid="uid://curacdq3lps2s" path="res://world/ship/assets/ship_inner.png" id="1_8rx7k"]
+[ext_resource type="Texture2D" uid="uid://bvr5pl2cvywmr" path="res://world/ship/assets/shipCrash_inner.png" id="1_ixpqi"]
+[ext_resource type="Script" path="res://world/ship/ship.gd" id="1_wm56s"]
+[ext_resource type="Texture2D" uid="uid://c33o66pp6m3ro" path="res://world/ship/assets/ship_outline1.png" id="2_l4uqa"]
+[ext_resource type="Texture2D" uid="uid://ci48bya7ri5u2" path="res://world/ship/assets/shipCrash_outline.png" id="2_q5uc7"]
+[ext_resource type="FontFile" uid="uid://cfachjkk2umhy" path="res://resources/fonts/Helvetica Black Condensed.otf" id="4_x7b07"]
+[ext_resource type="Texture2D" uid="uid://ci0pv7sydgvw4" path="res://world/ship/assets/ship_part0.png" id="7_me375"]
+[ext_resource type="Texture2D" uid="uid://bcu4j4m1ujf6p" path="res://world/ship/assets/ship_part1.png" id="8_i8vm5"]
+[ext_resource type="Texture2D" uid="uid://bjsksha4mmgdr" path="res://world/ship/assets/ship_part2.png" id="9_tde1n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l358n"]
+size = Vector2(120, 108)
+
+[node name="ship" type="Area2D" groups=["ship_area"]]
+script = ExtResource("1_wm56s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 4)
+shape = SubResource("RectangleShape2D_l358n")
+
+[node name="particles" type="Node2D" parent="."]
+
+[node name="crash_1" type="CPUParticles2D" parent="particles"]
+position = Vector2(32, -10)
+rotation = -1.64934
+emitting = false
+amount = 64
+lifetime = 1.4
+one_shot = true
+speed_scale = 1.4
+explosiveness = 0.8
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.0
+initial_velocity_max = 14.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color = Color(0.0431373, 0.0470588, 0.0509804, 0.686275)
+
+[node name="crash_2" type="CPUParticles2D" parent="particles"]
+position = Vector2(-7, 18)
+rotation = 3.42783
+emitting = false
+amount = 64
+lifetime = 1.4
+one_shot = true
+speed_scale = 1.4
+explosiveness = 0.8
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.0
+initial_velocity_max = 14.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color = Color(0.0431373, 0.0470588, 0.0509804, 0.686275)
+
+[node name="crash_3" type="CPUParticles2D" parent="particles"]
+position = Vector2(47, 28)
+rotation = 0.0872665
+emitting = false
+amount = 64
+lifetime = 1.4
+one_shot = true
+speed_scale = 1.4
+explosiveness = 0.8
+emission_shape = 3
+emission_rect_extents = Vector2(1, 18)
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.0
+initial_velocity_max = 14.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color = Color(0.0431373, 0.0470588, 0.0509804, 0.686275)
+
+[node name="crash_4" type="CPUParticles2D" parent="particles"]
+position = Vector2(28, 47)
+rotation = 1.48353
+emitting = false
+amount = 64
+lifetime = 1.4
+one_shot = true
+speed_scale = 1.4
+explosiveness = 0.8
+emission_shape = 3
+emission_rect_extents = Vector2(1, 18)
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.0
+initial_velocity_max = 14.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color = Color(0.0431373, 0.0470588, 0.0509804, 0.686275)
+
+[node name="open_1" type="CPUParticles2D" parent="particles"]
+position = Vector2(32, -7)
+rotation = -1.64934
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 0.8
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.0
+initial_velocity_max = 14.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color = Color(0.0431373, 0.0470588, 0.0509804, 0.686275)
+
+[node name="open_2" type="CPUParticles2D" parent="particles"]
+position = Vector2(-6, 22)
+rotation = -1.64934
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 0.8
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.0
+initial_velocity_max = 14.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color = Color(0.0431373, 0.0470588, 0.0509804, 0.686275)
+
+[node name="open_3" type="CPUParticles2D" parent="particles"]
+position = Vector2(46, 18)
+rotation = -1.64934
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 0.8
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.0
+initial_velocity_max = 14.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color = Color(0.0431373, 0.0470588, 0.0509804, 0.686275)
+
+[node name="open_4" type="CPUParticles2D" parent="particles"]
+position = Vector2(24, 47)
+rotation = -1.64934
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 0.8
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.0
+initial_velocity_max = 14.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color = Color(0.0431373, 0.0470588, 0.0509804, 0.686275)
+
+[node name="final_open" type="CPUParticles2D" parent="particles"]
+position = Vector2(17, 20)
+rotation = -1.64934
+emitting = false
+amount = 64
+lifetime = 1.8
+one_shot = true
+explosiveness = 0.8
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.0
+initial_velocity_max = 14.0
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+color = Color(0.0431373, 0.0470588, 0.0509804, 0.686275)
+
+[node name="final_open2" type="CPUParticles2D" parent="particles"]
+position = Vector2(33, 38)
+rotation = -1.64934
+emitting = false
+amount = 64
+lifetime = 1.8
+one_shot = true
+explosiveness = 0.8
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.0
+initial_velocity_max = 14.0
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+color = Color(0.0431373, 0.0470588, 0.0509804, 0.686275)
+
+[node name="final_open3" type="CPUParticles2D" parent="particles"]
+position = Vector2(39, 6)
+rotation = -1.64934
+emitting = false
+amount = 64
+lifetime = 1.8
+one_shot = true
+explosiveness = 0.8
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.0
+initial_velocity_max = 14.0
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+color = Color(0.0431373, 0.0470588, 0.0509804, 0.686275)
+
+[node name="sprites_crash" type="Node2D" parent="."]
+visible = false
+
+[node name="inner" type="Sprite2D" parent="sprites_crash"]
+modulate = Color(1, 1, 1, 0.607843)
+texture = ExtResource("1_ixpqi")
+
+[node name="outline" type="Sprite2D" parent="sprites_crash"]
+texture = ExtResource("2_q5uc7")
+
+[node name="Label" type="Label" parent="sprites_crash"]
+offset_left = -140.0
+offset_top = 32.0
+offset_right = -17.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("4_x7b07")
+text = "Break with 'Space'
+"
+
+[node name="Label2" type="Label" parent="sprites_crash"]
+offset_left = -116.0
+offset_top = 54.0
+offset_right = 60.0
+offset_bottom = 77.0
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("4_x7b07")
+theme_override_font_sizes/font_size = 12
+text = "to recieve nuclear weapon material"
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="inner" type="Sprite2D" parent="sprites"]
+modulate = Color(1, 1, 1, 0.607843)
+texture = ExtResource("1_8rx7k")
+
+[node name="outline" type="Sprite2D" parent="sprites"]
+texture = ExtResource("2_l4uqa")
+
+[node name="explode" type="Node2D" parent="."]
+visible = false
+
+[node name="inner" type="Sprite2D" parent="explode"]
+modulate = Color(1, 1, 1, 0.607843)
+texture = ExtResource("1_ixpqi")
+
+[node name="part0" type="Sprite2D" parent="explode"]
+texture = ExtResource("7_me375")
+
+[node name="part1" type="Sprite2D" parent="explode"]
+texture = ExtResource("8_i8vm5")
+
+[node name="part2" type="Sprite2D" parent="explode"]
+texture = ExtResource("9_tde1n")

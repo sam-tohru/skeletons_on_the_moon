@@ -1,0 +1,149 @@
+[gd_scene load_steps=16 format=3 uid="uid://bfa1co116sdnc"]
+
+[ext_resource type="PackedScene" uid="uid://yyw6sm2a03ut" path="res://world/moon_ground/craters/crater_small.tscn" id="1_cmc8u"]
+[ext_resource type="Shader" uid="uid://4kijremr5ipd" path="res://world/moon_ground/moon_ground.tres" id="1_dw0p2"]
+[ext_resource type="Script" path="res://world/moon_ground/moon_ground.gd" id="1_wlirk"]
+[ext_resource type="Texture2D" uid="uid://7md8dmcsl1hk" path="res://world/random_floor_stuff/random_floor_stuff.png" id="3_u10xn"]
+[ext_resource type="PackedScene" uid="uid://64eodb8vbpos" path="res://world/moon_ground/craters/crater_large.tscn" id="4_nacl3"]
+[ext_resource type="PackedScene" uid="uid://b5cadp31g507b" path="res://world/base/light/light_base.tscn" id="6_cmdgb"]
+[ext_resource type="Texture2D" uid="uid://bahhg4232yysw" path="res://world/base/signs/pos_sign.png" id="7_gq8ul"]
+[ext_resource type="FontFile" uid="uid://cfachjkk2umhy" path="res://resources/fonts/Helvetica Black Condensed.otf" id="9_a6ebq"]
+[ext_resource type="PackedScene" uid="uid://cokyrsy83y0am" path="res://world/base/tree/tree.tscn" id="9_kelb5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4e370"]
+shader = ExtResource("1_dw0p2")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7wd11"]
+texture = ExtResource("3_u10xn")
+texture_region_size = Vector2i(24, 24)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_bxeca"]
+tile_size = Vector2i(24, 24)
+sources/0 = SubResource("TileSetAtlasSource_7wd11")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r88nu"]
+size = Vector2(9770, 1338)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjogs"]
+size = Vector2(9770, 1767)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqcc"]
+size = Vector2(9770, 1763)
+
+[node name="moon_ground" type="Node2D"]
+script = ExtResource("1_wlirk")
+
+[node name="DarkRect" type="ColorRect" parent="."]
+z_index = -2
+material = SubResource("ShaderMaterial_4e370")
+offset_left = -5739.0
+offset_top = -3502.0
+offset_right = 5793.0
+offset_bottom = 3547.0
+mouse_filter = 2
+color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+
+[node name="DayRect" type="ColorRect" parent="."]
+z_index = -2
+material = SubResource("ShaderMaterial_4e370")
+offset_left = -3212.0
+offset_top = -1829.0
+offset_right = 3266.0
+offset_bottom = 1874.0
+mouse_filter = 2
+color = Color(0.854902, 0.85098, 0.843137, 1)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_bxeca")
+format = 2
+layer_0/tile_data = PackedInt32Array(720899, 0, 0, 1179661, 0, 0, 458797, 0, 0, 131093, 0, 0, 2359323, 0, 0, 458727, 0, 0, 2031607, 0, 0, 917458, 0, 0, -655413, 0, 0, -1769501, 0, 0, -1376261, 0, 0, -1900530, 0, 0, -1834954, 0, 0, -65465, 0, 0, -1769397, 0, 0, -2293690, 0, 0, -1048511, 0, 0, 2228308, 0, 0, 2621498, 0, 0, 1310785, 0, 0, 2949046, 0, 0, 1114036, 0, 0, -1310790, 0, 0, -2490443, 0, 0, -2752552, 0, 0, -2490427, 0, 0, -1900598, 0, 0, -2621390, 0, 0, -2752499, 0, 0, -2686986, 0, 0, -1900558, 0, 0, -2424861, 0, 0, -2555839, 0, 0, -2424796, 0, 0, -2686946, 0, 0, -1900517, 0, 0, -1048495, 0, 0, -262088, 0, 0, -1048528, 0, 0, -2031571, 0, 0, 2162626, 0, 0, 1834954, 0, 0, 2818004, 0, 0, 2228149, 0, 0, 2490373, 65536, 0, 2621415, 65536, 0, 2293837, 65536, 0, 393285, 65536, 0, -65500, 65536, 0, -65521, 65536, 0, -1114132, 65536, 0, -2097139, 65536, 0, -2359235, 65536, 0, -2817968, 65536, 0, -131026, 65536, 0, -1310721, 65536, 0, -2031619, 65536, 0, -1769536, 65536, 0, -196681, 65536, 0, -1441873, 65536, 0, 131011, 65536, 0, 655292, 131072, 0, -524216, 131072, 0, -1769470, 131072, 0, -1441847, 131072, 0, 1048525, 131072, 0, 2424888, 196608, 0, 589883, 196608, 0, 65617, 196608, 0, -1114054, 196608, 0, -1703870, 196608, 0, -1703982, 196608, 0, -1507397, 196608, 0, 524223, 196608, 0, -786503, 196608, 0, 2752456, 262144, 0, 982978, 262144, 0, -2031638, 262144, 0, -2228267, 262144, 0, -2293706, 262144, 0, 983035, 262144, 0, -524304, 262144, 0, 65535, 262144, 0, 1245182, 327680, 0, 655380, 327680, 0, -327601, 327680, 0, 1507386, 327680, 0, 1245232, 327680, 0, 2293801, 327680, 0, 131020, 327680, 0, 1703896, 327680, 0, -196628, 327680, 0, -458752, 327680, 0, 2686995, 327680, 0, 1703943, 327680, 0, 2752500, 393216, 0, 1310661, 393216, 0, -655421, 393216, 0, -2424902, 393216, 0, -1703922, 393216, 0, -524267, 393216, 0, -1507303, 393216, 0, 393255, 393216, 0, 1441814, 393216, 0, 2031682, 458752, 0, 2883662, 458752, 0, 2883633, 458752, 0, 1966111, 458752, 0, 327677, 458752, 0, 851937, 458752, 0, 393178, 458752, 0, -458799, 458752, 0, -1245222, 262144, 0, 2359213, 262144, 0, 524205, 327680, 0, -2359215, 196608, 0, -3014602, 196608, 0, 2883651, 131072, 0, 1507406, 393216, 0, -1048586, 458752, 0, -3604564, 0, 0, -3539045, 0, 0, -2556055, 0, 0, 1834866, 0, 0, 4325251, 0, 0, 327563, 0, 0, -1441932, 0, 0, -3014759, 0, 0, -4718717, 0, 0, -3473547, 0, 0, -4915347, 0, 0, -5046311, 0, 0, -4063279, 0, 0, -5177427, 0, 0, -5177249, 0, 0, -4063195, 0, 0, -4915193, 0, 0, -3932013, 0, 0, -1769355, 0, 0, 1048725, 0, 0, 3997791, 0, 0, -3014555, 0, 0, -5504875, 0, 0, 1376370, 0, 0, -262052, 0, 0, 4653202, 0, 0, 2818140, 0, 0, 4784175, 0, 0, 6094814, 0, 0, 4259761, 0, 0, 3342272, 0, 0, 2817944, 0, 0, 458623, 0, 0, 4259697, 0, 0, 5111947, 65536, 0, 2490506, 65536, 0, 4522055, 65536, 0, 5242842, 65536, 0, 5242923, 65536, 0, 1113988, 65536, 0, 3145588, 65536, 0, -1114229, 65536, 0, -3014788, 65536, 0, -5636208, 65536, 0, -5046268, 65536, 0, -4587542, 65536, 0, -4194169, 65536, 0, -4915107, 65536, 0, -4587449, 65536, 0, -1048426, 65536, 0, -1507221, 65536, 0, -1638307, 65536, 0, -2031528, 65536, 0, -2555784, 65536, 0, -4063154, 65536, 0, 4325400, 65536, 0, 3801077, 65536, 0, 3539004, 65536, 0, 721025, 65536, 0, -786319, 65536, 0, 4784257, 65536, 0, -524398, 65536, 0, -5046232, 131072, 0, -3538969, 131072, 0, -3473389, 131072, 0, -4259836, 131072, 0, -3604360, 131072, 0, -5570442, 131072, 0, -3014506, 131072, 0, -1113983, 131072, 0, 1507430, 131072, 0, 983123, 131072, 0, 3801211, 131072, 0, 3866710, 131072, 0, 5374046, 131072, 0, 5767327, 131072, 0, 2818204, 131072, 0, 5242764, 131072, 0, 5439336, 131072, 0, -721044, 131072, 0, 3735445, 131072, 0, -786517, 131072, 0, 2883494, 196608, 0, 4456392, 196608, 0, 5570482, 196608, 0, -1572965, 196608, 0, -2293912, 196608, 0, 4653037, 262144, 0, 5308432, 262144, 0, -5439456, 262144, 0, -4259790, 262144, 0, -3276758, 262144, 0, -4259746, 262144, 0, -589668, 262144, 0, -2621566, 262144, 0, 4849567, 262144, 0, 1900436, 262144, 0, 1048477, 262144, 0, 3669967, 327680, 0, 3670060, 327680, 0, -3211269, 327680, 0, -3211313, 327680, 0, -5439553, 327680, 0, -5505032, 327680, 0, -4063357, 393216, 0, -721028, 393216, 0, 2752387, 393216, 0, 5505023, 393216, 0, 5505144, 393216, 0, 1310862, 393216, 0, -2162552, 393216, 0, 65637, 393216, 0, -851910, 393216, 0, -3670008, 393216, 0, -4325448, 393216, 0, 4784141, 458752, 0, 4718521, 458752, 0, 5701755, 458752, 0, 1179761, 458752, 0, -5373880, 458752, 0, -4718479, 458752, 0, -4587625, 458752, 0, 786277, 458752, 0, 5439433, 458752, 0, 130976, 458752, 0, 5832591, 458752, 0, 5636162, 458752, 0, 124, 458752, 0, -1769319, 458752, 0, -3670132, 458752, 0, -5439585, 458752, 0, 1900417, 393216, 0, -3408023, 393216, 0, -1966193, 393216, 0, -2359390, 393216, 0, 3473430, 458752, 0, 4652946, 458752, 0, 2424946, 327680, 0, -4980612, 327680, 0, -3801105, 327680, 0)
+
+[node name="craters" type="Node2D" parent="."]
+
+[node name="crater_small" parent="craters" instance=ExtResource("4_nacl3")]
+position = Vector2(-2082, -647)
+crater_number = 2
+
+[node name="crater_small2" parent="craters" instance=ExtResource("4_nacl3")]
+position = Vector2(-776, 1409)
+
+[node name="crater_small3" parent="craters" instance=ExtResource("4_nacl3")]
+position = Vector2(1398, -1435)
+crater_number = 3
+
+[node name="crater_small4" parent="craters" instance=ExtResource("4_nacl3")]
+position = Vector2(2244, 250)
+crater_number = 4
+
+[node name="crater_small5" parent="craters" instance=ExtResource("1_cmc8u")]
+position = Vector2(30, -978)
+
+[node name="base" type="Node2D" parent="."]
+
+[node name="light_base" parent="base" instance=ExtResource("6_cmdgb")]
+z_index = -1
+position = Vector2(71, 41)
+
+[node name="sign_pos" type="Sprite2D" parent="base"]
+position = Vector2(3, -24)
+texture = ExtResource("7_gq8ul")
+
+[node name="tree" parent="base" instance=ExtResource("9_kelb5")]
+z_index = 2
+position = Vector2(182, -161)
+
+[node name="Label2" type="Label" parent="base"]
+offset_left = 61.0
+offset_top = 37.0
+offset_right = 528.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("9_a6ebq")
+theme_override_font_sizes/font_size = 16
+text = "<- this light protects this area from the darkness of night
+Skeletons will spawn in darkness, so be careful"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="base"]
+offset_left = 245.0
+offset_top = -172.0
+offset_right = 712.0
+offset_bottom = -58.0
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("9_a6ebq")
+theme_override_font_sizes/font_size = 16
+text = "<- this is a tree
+i wanted to add a oxygen mini-game
+but ran out of time "
+
+[node name="out_of_area" type="Area2D" parent="." groups=["out_of_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="out_of_area"]
+position = Vector2(-7, -2496)
+shape = SubResource("RectangleShape2D_r88nu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="out_of_area"]
+position = Vector2(-8, 2543)
+shape = SubResource("RectangleShape2D_r88nu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="out_of_area"]
+position = Vector2(4152, -766)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_sjogs")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="out_of_area"]
+position = Vector2(-4088, -18)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_vkqcc")

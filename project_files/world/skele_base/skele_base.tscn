@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy10hij6n805v"]
+
+[ext_resource type="Texture2D" uid="uid://56eh85xik8hv" path="res://world/skele_base/assets/skele_base_in.png" id="1_2yntq"]
+[ext_resource type="Script" path="res://world/skele_base/skele_base.gd" id="1_qkkob"]
+[ext_resource type="Texture2D" uid="uid://dvn0s0hmaqsyd" path="res://world/skele_base/assets/skele_base_out.png" id="2_m45wk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kcsu2"]
+size = Vector2(460, 350)
+
+[node name="skele_base" type="Node2D" groups=["skele_base"]]
+script = ExtResource("1_qkkob")
+
+[node name="Area2D" type="Area2D" parent="." groups=["skele_base"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_kcsu2")
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="inner" type="Sprite2D" parent="sprites"]
+modulate = Color(1, 1, 1, 0.611765)
+texture = ExtResource("1_2yntq")
+
+[node name="outer" type="Sprite2D" parent="sprites"]
+texture = ExtResource("2_m45wk")

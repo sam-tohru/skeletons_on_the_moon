@@ -1,0 +1,41 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dljqkogjfobwk"]
+
+[ext_resource type="Texture2D" uid="uid://ch4mdf6dg4w7d" path="res://world/moon_ground/craters/large/crater_large_in1.png" id="1_ub8pd"]
+[ext_resource type="Texture2D" uid="uid://b8hqg35ujboui" path="res://world/moon_ground/craters/large/crater_large_in2.png" id="2_p023c"]
+[ext_resource type="Texture2D" uid="uid://d3pe5jg663jwg" path="res://world/moon_ground/craters/large/crater_large_in3.png" id="3_x832r"]
+[ext_resource type="Texture2D" uid="uid://puh0jsexdpma" path="res://world/moon_ground/craters/large/crater_large_in4.png" id="4_rdlxw"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ub8pd")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p023c")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_x832r")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rdlxw")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}]

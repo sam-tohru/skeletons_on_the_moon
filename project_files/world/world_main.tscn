@@ -1,0 +1,366 @@
+[gd_scene load_steps=12 format=3 uid="uid://bxe5tyj2o48ev"]
+
+[ext_resource type="PackedScene" uid="uid://bfa1co116sdnc" path="res://world/moon_ground/moon_ground.tscn" id="1_gonev"]
+[ext_resource type="Script" path="res://world/world_main.gd" id="1_q0yon"]
+[ext_resource type="PackedScene" uid="uid://bm6sol5nujv87" path="res://player/player.tscn" id="2_prg0a"]
+[ext_resource type="Script" path="res://world/spawners_enemy.gd" id="5_vym37"]
+[ext_resource type="Texture2D" uid="uid://ddaxcre31uq4c" path="res://world/base/signs/sign_large.png" id="6_73sv5"]
+[ext_resource type="PackedScene" uid="uid://c2tvangp6qgsx" path="res://world/ship/ship.tscn" id="6_dvlwt"]
+[ext_resource type="PackedScene" uid="uid://cy10hij6n805v" path="res://world/skele_base/skele_base.tscn" id="6_ty2q6"]
+[ext_resource type="FontFile" uid="uid://cfachjkk2umhy" path="res://resources/fonts/Helvetica Black Condensed.otf" id="7_jyxcv"]
+[ext_resource type="Shader" uid="uid://4kijremr5ipd" path="res://world/moon_ground/moon_ground.tres" id="7_wnh41"]
+[ext_resource type="PackedScene" uid="uid://dxdibt7ta63wt" path="res://resources/cutscenes/win/cutscene_win.tscn" id="10_xt814"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w14l2"]
+shader = ExtResource("7_wnh41")
+
+[node name="world_main" type="Node2D"]
+script = ExtResource("1_q0yon")
+
+[node name="moon_ground" parent="." instance=ExtResource("1_gonev")]
+
+[node name="timers" type="Node" parent="."]
+
+[node name="timer_day_night" type="Timer" parent="timers"]
+wait_time = 20.0
+autostart = true
+
+[node name="tick_timer" type="Timer" parent="timers"]
+wait_time = 0.1
+autostart = true
+
+[node name="enemy_spawn_timer" type="Timer" parent="timers"]
+wait_time = 0.5
+
+[node name="skele_base" parent="." instance=ExtResource("6_ty2q6")]
+position = Vector2(-2000, 0)
+
+[node name="loc_0" type="Label" parent="skele_base"]
+offset_left = -97.0
+offset_top = -165.0
+offset_right = 104.0
+offset_bottom = -51.0
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_jyxcv")
+theme_override_font_sizes/font_size = 16
+text = "when you have collected
+from all the crashed ship-pods
+
+you can throw the bomb
+to kill the skeleton queen
+(that's stuck in the ground)"
+horizontal_alignment = 1
+
+[node name="player" parent="." instance=ExtResource("2_prg0a")]
+position = Vector2(-483, -374)
+
+[node name="spawners_enemy" type="Node2D" parent="player"]
+script = ExtResource("5_vym37")
+
+[node name="spawn_0" type="Marker2D" parent="player/spawners_enemy"]
+position = Vector2(-476, 87)
+
+[node name="spawn_1" type="Marker2D" parent="player/spawners_enemy"]
+position = Vector2(-458, -261)
+
+[node name="spawn_2" type="Marker2D" parent="player/spawners_enemy"]
+position = Vector2(-121, -291)
+
+[node name="spawn_3" type="Marker2D" parent="player/spawners_enemy"]
+position = Vector2(280, -269)
+
+[node name="spawn_4" type="Marker2D" parent="player/spawners_enemy"]
+position = Vector2(490, -38)
+
+[node name="spawn_5" type="Marker2D" parent="player/spawners_enemy"]
+position = Vector2(477, 190)
+
+[node name="spawn_6" type="Marker2D" parent="player/spawners_enemy"]
+position = Vector2(117, 311)
+
+[node name="spawn_7" type="Marker2D" parent="player/spawners_enemy"]
+position = Vector2(-372, 293)
+
+[node name="ships" type="Node2D" parent="."]
+
+[node name="sign_locations" type="Sprite2D" parent="ships"]
+position = Vector2(-185, -180)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("6_73sv5")
+
+[node name="sign_locations" type="Sprite2D" parent="ships/sign_locations"]
+position = Vector2(86.6667, 0.833336)
+texture = ExtResource("6_73sv5")
+
+[node name="LightRect" type="ColorRect" parent="ships/sign_locations/sign_locations"]
+material = SubResource("ShaderMaterial_w14l2")
+offset_left = -58.0
+offset_top = -51.0
+offset_right = -29.0
+offset_bottom = 27.0
+mouse_filter = 2
+color = Color(0.854902, 0.85098, 0.843137, 1)
+
+[node name="Label" type="Label" parent="ships/sign_locations"]
+offset_left = -1.66664
+offset_top = -47.5
+offset_right = 114.333
+offset_bottom = -28.5
+scale = Vector2(0.8, 0.8)
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_jyxcv")
+theme_override_font_sizes/font_size = 16
+text = "Collect Locations"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="ships/sign_locations/Label"]
+layout_mode = 0
+offset_left = -98.9584
+offset_top = -38.5417
+offset_right = 318.042
+offset_bottom = -0.541656
+scale = Vector2(0.8, 0.8)
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_jyxcv")
+theme_override_font_sizes/font_size = 16
+text = "you need to collect the weapon materials from cargo ship-pods
+to destroy the skeleton queen at (-2000, 0)"
+horizontal_alignment = 1
+
+[node name="dir1" type="Label" parent="ships/sign_locations/Label"]
+layout_mode = 0
+offset_left = 362.5
+offset_top = -119.792
+offset_right = 387.5
+offset_bottom = -100.792
+rotation = 1.5708
+scale = Vector2(2.2, 2.2)
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_jyxcv")
+theme_override_font_sizes/font_size = 16
+text = "<-"
+horizontal_alignment = 1
+
+[node name="dir2" type="Label" parent="ships/sign_locations/Label"]
+layout_mode = 0
+offset_left = 921.875
+offset_top = -102.083
+offset_right = 946.875
+offset_bottom = -83.0834
+rotation = 2.32129
+scale = Vector2(2.2, 2.2)
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_jyxcv")
+theme_override_font_sizes/font_size = 16
+text = "<-"
+horizontal_alignment = 1
+
+[node name="dir3" type="Label" parent="ships/sign_locations/Label"]
+layout_mode = 0
+offset_left = 929.167
+offset_top = 243.75
+offset_right = 954.167
+offset_bottom = 262.75
+rotation = 3.14159
+scale = Vector2(2.2, 2.2)
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_jyxcv")
+theme_override_font_sizes/font_size = 16
+text = "<-"
+horizontal_alignment = 1
+
+[node name="dir4" type="Label" parent="ships/sign_locations/Label"]
+layout_mode = 0
+offset_left = -114.583
+offset_top = 643.75
+offset_right = -89.5834
+offset_bottom = 662.75
+rotation = 5.29882
+scale = Vector2(2.2, 2.2)
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_jyxcv")
+theme_override_font_sizes/font_size = 16
+text = "<-"
+horizontal_alignment = 1
+
+[node name="dir5" type="Label" parent="ships/sign_locations/Label"]
+layout_mode = 0
+offset_left = -328.125
+offset_top = 119.792
+offset_right = -303.125
+offset_bottom = 138.792
+rotation = 0.127409
+scale = Vector2(2.2, 2.2)
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_jyxcv")
+theme_override_font_sizes/font_size = 16
+text = "<-"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="ships/sign_locations/Label"]
+offset_left = 271.875
+offset_top = -86.4583
+offset_right = 688.875
+offset_bottom = -48.4583
+scale = Vector2(0.8, 0.8)
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_jyxcv")
+theme_override_font_sizes/font_size = 16
+text = "arrows point where to go btw"
+horizontal_alignment = 1
+
+[node name="dir6" type="Label" parent="ships/sign_locations/Label"]
+offset_left = -1598.96
+offset_top = 129.167
+offset_right = -1384.96
+offset_bottom = 148.167
+rotation = -0.118682
+scale = Vector2(1.4, 1.4)
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_jyxcv")
+theme_override_font_sizes/font_size = 16
+text = "<- kill the skeleton queen to win"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ships/sign_locations"]
+offset_left = -45.8333
+offset_top = -32.5
+offset_right = 21.1667
+offset_bottom = 32.5
+scale = Vector2(0.9, 0.9)
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ships/sign_locations/HBoxContainer"]
+layout_mode = 2
+
+[node name="loc_0" type="Label" parent="ships/sign_locations/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_jyxcv")
+theme_override_font_sizes/font_size = 16
+text = "0,0"
+horizontal_alignment = 1
+
+[node name="loc_1" type="Label" parent="ships/sign_locations/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_jyxcv")
+theme_override_font_sizes/font_size = 16
+text = "0,0"
+horizontal_alignment = 1
+
+[node name="loc_2" type="Label" parent="ships/sign_locations/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_jyxcv")
+theme_override_font_sizes/font_size = 16
+text = "0,0"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="ships/sign_locations/HBoxContainer"]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ships/sign_locations/HBoxContainer"]
+layout_mode = 2
+
+[node name="loc_3" type="Label" parent="ships/sign_locations/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_jyxcv")
+theme_override_font_sizes/font_size = 16
+text = "0,0"
+horizontal_alignment = 1
+
+[node name="loc_4" type="Label" parent="ships/sign_locations/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_jyxcv")
+theme_override_font_sizes/font_size = 16
+text = "0,0"
+horizontal_alignment = 1
+
+[node name="loc_5" type="Label" parent="ships/sign_locations/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_jyxcv")
+theme_override_font_sizes/font_size = 16
+text = "0,0"
+horizontal_alignment = 1
+
+[node name="ship_0" parent="ships" instance=ExtResource("6_dvlwt")]
+visible = false
+position = Vector2(-109, 11)
+player_ship = true
+
+[node name="ship_1" parent="ships" instance=ExtResource("6_dvlwt")]
+position = Vector2(144, -760)
+
+[node name="ship_2" parent="ships" instance=ExtResource("6_dvlwt")]
+position = Vector2(2036, -62)
+
+[node name="ship_3" parent="ships" instance=ExtResource("6_dvlwt")]
+position = Vector2(-1704, -257)
+
+[node name="ship_4" parent="ships" instance=ExtResource("6_dvlwt")]
+position = Vector2(-668, 1071)
+
+[node name="ship_5" parent="ships" instance=ExtResource("6_dvlwt")]
+position = Vector2(1444, -1096)
+
+[node name="cutscene_win" parent="." instance=ExtResource("10_xt814")]
+position = Vector2(0, 5500)
+
+[node name="Label" type="Label" parent="cutscene_win"]
+offset_left = -233.0
+offset_top = -689.0
+offset_right = 234.0
+offset_bottom = -670.0
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("7_jyxcv")
+theme_override_font_sizes/font_size = 16
+text = "You found where i keep the ending cutscene lol"
+horizontal_alignment = 1
+
+[node name="cutscene_tele" type="Marker2D" parent="cutscene_win"]
+position = Vector2(0, -30)
+
+[connection signal="timeout" from="timers/timer_day_night" to="." method="_on_timer_day_night_timeout"]
+[connection signal="timeout" from="timers/tick_timer" to="." method="_on_tick_timer_timeout"]
+[connection signal="timeout" from="timers/enemy_spawn_timer" to="." method="_on_enemy_spawn_timer_timeout"]
