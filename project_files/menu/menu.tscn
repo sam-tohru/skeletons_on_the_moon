@@ -1,0 +1,193 @@
+[gd_scene load_steps=16 format=3 uid="uid://bigfrcthsqmqp"]
+
+[ext_resource type="Script" path="res://menu/menu.gd" id="1_b2vu8"]
+[ext_resource type="Texture2D" uid="uid://c5e84squw6xk" path="res://resources/buttons/menu/menu_1.png" id="7_ss07b"]
+[ext_resource type="Texture2D" uid="uid://buvkfxac3dta3" path="res://resources/buttons/menu/menuPressed_1.png" id="8_4ah6i"]
+[ext_resource type="Texture2D" uid="uid://dv6xn18i76wd" path="res://resources/buttons/menu/menu_2.png" id="11_tytk6"]
+[ext_resource type="Texture2D" uid="uid://ccn11k5e1l15f" path="res://resources/buttons/menu/menuPressed_2.png" id="12_hcknt"]
+[ext_resource type="FontFile" uid="uid://cfachjkk2umhy" path="res://resources/fonts/Helvetica Black Condensed.otf" id="13_ppn8r"]
+[ext_resource type="Texture2D" uid="uid://cnsg578c6nbsk" path="res://resources/buttons/menu/menu_6.png" id="16_t3v2g"]
+[ext_resource type="Texture2D" uid="uid://ctiarsh4a61cb" path="res://resources/buttons/menu/menuPressed_6.png" id="17_kamdl"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d6u1p"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v8tsm"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x5ivo"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j4te7"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a8wyu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_baxnu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g1243"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_d6u1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_v8tsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_x5ivo")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_j4te7")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_a8wyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_baxnu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_b2vu8")
+
+[node name="background" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_g1243")
+
+[node name="backround_particles" type="CPUParticles2D" parent="."]
+amount = 126
+emission_shape = 3
+emission_rect_extents = Vector2(260, 160)
+gravity = Vector2(0, 0)
+scale_amount_min = 186.0
+scale_amount_max = 186.0
+color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+
+[node name="menu" type="TextureButton" parent="."]
+offset_left = 20.0
+offset_top = -156.0
+offset_right = 157.0
+offset_bottom = -95.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("7_ss07b")
+texture_pressed = ExtResource("8_4ah6i")
+
+[node name="Label" type="Label" parent="menu"]
+layout_mode = 0
+offset_left = 18.6667
+offset_top = 20.0
+offset_right = 119.667
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_fonts/font = ExtResource("13_ppn8r")
+text = "PLAY"
+horizontal_alignment = 1
+
+[node name="settings" type="TextureButton" parent="."]
+offset_left = 20.0
+offset_top = -51.0
+offset_right = 157.0
+offset_bottom = 10.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("11_tytk6")
+texture_pressed = ExtResource("12_hcknt")
+
+[node name="Label" type="Label" parent="settings"]
+layout_mode = 0
+offset_left = 17.3333
+offset_top = 23.3333
+offset_right = 118.334
+offset_bottom = 53.3333
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_fonts/font = ExtResource("13_ppn8r")
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="menu2" type="TextureButton" parent="."]
+offset_left = -230.0
+offset_top = 101.0
+offset_right = -93.0
+offset_bottom = 162.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("11_tytk6")
+texture_pressed = ExtResource("12_hcknt")
+
+[node name="Label" type="Label" parent="menu2"]
+layout_mode = 0
+offset_left = 6.24996
+offset_top = 12.5
+offset_right = 131.25
+offset_bottom = 64.5
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_fonts/font = ExtResource("13_ppn8r")
+text = "Thanks for
+playing!"
+horizontal_alignment = 1
+
+[node name="reset" type="TextureButton" parent="."]
+offset_left = 38.0
+offset_top = 76.0
+offset_right = 175.0
+offset_bottom = 137.0
+scale = Vector2(1.2, 1.2)
+texture_normal = ExtResource("16_t3v2g")
+texture_pressed = ExtResource("17_kamdl")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 59.0
+offset_top = 109.0
+offset_right = 184.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_fonts/font = ExtResource("13_ppn8r")
+text = "RESET GAME"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_left = -380.0
+offset_top = -135.0
+offset_right = 87.0
+offset_bottom = -21.0
+theme_override_colors/font_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("13_ppn8r")
+theme_override_font_sizes/font_size = 16
+text = "There are skeletons on this moon!!
+You have been hired by a Mining Company,
+to remove the skeletons from this area.
+So that they can mine moon asbestos."
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+offset_left = -380.0
+offset_top = -33.0
+offset_right = 87.0
+offset_bottom = 81.0
+theme_override_colors/font_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("13_ppn8r")
+theme_override_font_sizes/font_size = 16
+text = "Collect 6 materials from crashed ship-pods
+to make a nuclear bomb 
+to eradicate the skeleton queen"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="."]
+offset_left = -380.0
+offset_top = 43.0
+offset_right = 87.0
+offset_bottom = 157.0
+theme_override_colors/font_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("13_ppn8r")
+theme_override_font_sizes/font_size = 16
+text = "Move -> wasd / arrows
+Interact -> space, enter, r-click"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="menu2" to="." method="_on_menu_2_pressed"]
+[connection signal="pressed" from="reset" to="." method="_on_reset_pressed"]

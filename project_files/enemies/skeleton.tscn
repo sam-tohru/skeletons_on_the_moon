@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckdgdd2fdbd5d"]
+
+[ext_resource type="Script" path="res://enemies/skeleton.gd" id="1_4yplt"]
+[ext_resource type="Texture2D" uid="uid://cdleabcj5b5uv" path="res://enemies/assets/skeleton_inner.png" id="1_6a6y7"]
+[ext_resource type="Texture2D" uid="uid://cwxedhxqjjrif" path="res://enemies/assets/skeleton_outter.png" id="2_y0jpb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_knyv8"]
+radius = 22.0
+height = 60.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vtcic"]
+radius = 17.0
+height = 58.0
+
+[node name="skeleton" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_4yplt")
+
+[node name="player_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_area"]
+position = Vector2(-3, 0)
+shape = SubResource("CapsuleShape2D_knyv8")
+debug_color = Color(0.219608, 0.619608, 0.431373, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 0)
+shape = SubResource("CapsuleShape2D_vtcic")
+debug_color = Color(0.960784, 0.192157, 0.156863, 0.419608)
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="inner" type="Sprite2D" parent="sprites"]
+modulate = Color(1, 1, 1, 0.607843)
+texture = ExtResource("1_6a6y7")
+hframes = 2
+
+[node name="outter" type="Sprite2D" parent="sprites"]
+texture = ExtResource("2_y0jpb")
+hframes = 2
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="particles" type="Node2D" parent="."]
+
+[node name="crash_1" type="CPUParticles2D" parent="particles"]
+position = Vector2(3, -3)
+rotation = -1.64934
+emitting = false
+amount = 64
+lifetime = 1.4
+one_shot = true
+speed_scale = 1.4
+explosiveness = 0.8
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.0
+initial_velocity_max = 14.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color = Color(0.0431373, 0.0470588, 0.0509804, 0.686275)
+
+[node name="crash_2" type="CPUParticles2D" parent="particles"]
+position = Vector2(3, -3)
+rotation = -1.64934
+emitting = false
+amount = 64
+lifetime = 1.4
+one_shot = true
+speed_scale = 1.4
+explosiveness = 0.8
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.0
+initial_velocity_max = 14.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color = Color(0.854902, 0.85098, 0.843137, 1)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

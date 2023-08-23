@@ -1,0 +1,355 @@
+[gd_scene load_steps=20 format=3 uid="uid://bm6sol5nujv87"]
+
+[ext_resource type="Texture2D" uid="uid://c4it4w48svflk" path="res://player/assets/guy_sheet.png" id="1_epr2a"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_rv622"]
+[ext_resource type="PackedScene" uid="uid://dualcmxkok8n" path="res://main_camera.tscn" id="2_uugry"]
+[ext_resource type="Texture2D" uid="uid://cv1hsun4wphqw" path="res://player/assets/guy_death.png" id="3_itcjs"]
+[ext_resource type="PackedScene" uid="uid://bigfrcthsqmqp" path="res://menu/menu.tscn" id="3_ped2t"]
+[ext_resource type="Texture2D" uid="uid://d25yy4xgt2600" path="res://player/assets/death_right.png" id="4_qwtgf"]
+[ext_resource type="FontFile" uid="uid://cfachjkk2umhy" path="res://resources/fonts/Helvetica Black Condensed.otf" id="5_3tvvb"]
+[ext_resource type="Texture2D" uid="uid://ris7puwvmtk" path="res://player/assets/death_left.png" id="5_d5rmi"]
+[ext_resource type="Texture2D" uid="uid://dcynrf55bian8" path="res://resources/bars/time_bar.png" id="8_8rk73"]
+[ext_resource type="Script" path="res://player/ui.gd" id="8_n4201"]
+[ext_resource type="Texture2D" uid="uid://8kvh5jn0ts0b" path="res://resources/bars/time_bar_fill.png" id="9_rvv6x"]
+[ext_resource type="Texture2D" uid="uid://bu2vfycp0n25s" path="res://player/assets/collect_thing.png" id="10_obhd5"]
+[ext_resource type="Texture2D" uid="uid://eaue6jqqxaj1" path="res://player/assets/collect_fill_up.png" id="10_oboaw"]
+[ext_resource type="Texture2D" uid="uid://dg67v4rnqy1bj" path="res://player/assets/collect_back.png" id="11_557ca"]
+[ext_resource type="Texture2D" uid="uid://cm3wyqm7d8uyd" path="res://player/assets/bomb.png" id="15_733xs"]
+[ext_resource type="PackedScene" uid="uid://clk22cgap8uq8" path="res://resources/sfx/sfx_main.tscn" id="16_0s5b1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mmmas"]
+radius = 20.0
+height = 56.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gln1"]
+radius = 22.0
+height = 60.0
+
+[sub_resource type="Gradient" id="Gradient_w1ff6"]
+colors = PackedColorArray(0.0431373, 0.0470588, 0.0509804, 1, 0.0431373, 0.0470588, 0.0509804, 0.470588)
+
+[node name="player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_rv622")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 0)
+shape = SubResource("CapsuleShape2D_mmmas")
+
+[node name="player_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_area"]
+position = Vector2(-3, 0)
+shape = SubResource("CapsuleShape2D_4gln1")
+debug_color = Color(0.219608, 0.619608, 0.431373, 0.419608)
+
+[node name="sprite_guy" type="Sprite2D" parent="."]
+texture = ExtResource("1_epr2a")
+hframes = 8
+
+[node name="sprite_death" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+texture = ExtResource("3_itcjs")
+hframes = 7
+
+[node name="sprite_right" type="Sprite2D" parent="sprite_death"]
+visible = false
+texture = ExtResource("4_qwtgf")
+
+[node name="Marker2D" type="Marker2D" parent="sprite_death/sprite_right"]
+position = Vector2(-175, -122)
+
+[node name="parts_death_3" type="CPUParticles2D" parent="sprite_death/sprite_right"]
+position = Vector2(3, -4)
+rotation = 0.71384
+emitting = false
+amount = 32
+lifetime = 1.6
+one_shot = true
+explosiveness = 0.8
+local_coords = true
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 16.0
+scale_amount_min = 3.0
+scale_amount_max = 6.0
+color_ramp = SubResource("Gradient_w1ff6")
+
+[node name="sprite_left" type="Sprite2D" parent="sprite_death"]
+visible = false
+texture = ExtResource("5_d5rmi")
+
+[node name="Marker2D" type="Marker2D" parent="sprite_death/sprite_left"]
+position = Vector2(194, -113)
+
+[node name="parts_death_1" type="CPUParticles2D" parent="sprite_death/sprite_left"]
+position = Vector2(5, -19)
+rotation = 2.03156
+emitting = false
+amount = 32
+lifetime = 1.6
+one_shot = true
+explosiveness = 0.8
+local_coords = true
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 16.0
+scale_amount_min = 3.0
+scale_amount_max = 6.0
+color_ramp = SubResource("Gradient_w1ff6")
+
+[node name="parts_death_2" type="CPUParticles2D" parent="sprite_death"]
+position = Vector2(2, -1)
+rotation = 4.42441
+emitting = false
+amount = 32
+lifetime = 1.4
+one_shot = true
+explosiveness = 0.8
+local_coords = true
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 16.0
+scale_amount_min = 3.0
+scale_amount_max = 6.0
+color_ramp = SubResource("Gradient_w1ff6")
+
+[node name="label_death" type="Label" parent="sprite_death"]
+offset_left = -45.0
+offset_top = -53.0
+offset_right = 46.0
+offset_bottom = -34.0
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_3tvvb")
+text = "you have died"
+horizontal_alignment = 1
+
+[node name="Camera2D" parent="." instance=ExtResource("2_uugry")]
+
+[node name="ui" type="Node2D" parent="Camera2D"]
+z_index = 3
+script = ExtResource("8_n4201")
+
+[node name="collect_fill_up" type="Sprite2D" parent="Camera2D/ui"]
+position = Vector2(260, -135)
+texture = ExtResource("10_oboaw")
+hframes = 7
+
+[node name="collect_label" type="Label" parent="Camera2D/ui/collect_fill_up"]
+offset_left = -54.0
+offset_top = 35.0
+offset_right = 50.0
+offset_bottom = 54.0
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_3tvvb")
+theme_override_font_sizes/font_size = 16
+text = "Collect 0 / 6"
+horizontal_alignment = 1
+
+[node name="collect_done" type="Label" parent="Camera2D/ui/collect_fill_up/collect_label"]
+visible = false
+layout_mode = 0
+offset_left = -81.0
+offset_top = -65.0
+offset_right = 32.0
+offset_bottom = 11.0
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_3tvvb")
+theme_override_font_sizes/font_size = 16
+text = "you have
+a bomb
+use it at
+(-2000, 0)"
+horizontal_alignment = 1
+
+[node name="collect_back" type="Sprite2D" parent="Camera2D/ui/collect_fill_up"]
+modulate = Color(1, 1, 1, 0.215686)
+show_behind_parent = true
+texture = ExtResource("11_557ca")
+
+[node name="collect_thing" type="Sprite2D" parent="Camera2D/ui/collect_fill_up"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-261, 70)
+texture = ExtResource("10_obhd5")
+
+[node name="marker_og" type="Marker2D" parent="Camera2D/ui/collect_fill_up"]
+position = Vector2(-260, 69)
+
+[node name="pos_container" type="VBoxContainer" parent="Camera2D/ui"]
+offset_left = -127.0
+offset_top = -156.0
+offset_right = 126.0
+offset_bottom = -106.0
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Camera2D/ui/pos_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_3tvvb")
+text = "position:"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/ui/pos_container"]
+layout_mode = 2
+alignment = 1
+
+[node name="x_label" type="Label" parent="Camera2D/ui/pos_container/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_3tvvb")
+text = "x: 0"
+horizontal_alignment = 1
+
+[node name="y_label" type="Label" parent="Camera2D/ui/pos_container/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_3tvvb")
+text = "y: 0"
+horizontal_alignment = 1
+
+[node name="time_bar" type="TextureProgressBar" parent="Camera2D/ui"]
+offset_left = -290.0
+offset_top = -156.0
+offset_right = -90.0
+offset_bottom = -116.0
+max_value = 24.0
+step = 0.1
+texture_under = ExtResource("9_rvv6x")
+texture_progress = ExtResource("8_8rk73")
+
+[node name="Label" type="Label" parent="Camera2D/ui/time_bar"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 41.0
+offset_right = 118.0
+offset_bottom = 62.0
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_3tvvb")
+theme_override_font_sizes/font_size = 16
+text = "Time left in Day"
+
+[node name="out_of_area_label" type="Label" parent="Camera2D/ui"]
+visible = false
+offset_left = -58.0
+offset_top = -94.0
+offset_right = 101.0
+offset_bottom = -37.0
+theme_override_colors/font_color = Color(0.0431373, 0.0470588, 0.0509804, 1)
+theme_override_colors/font_outline_color = Color(0.854902, 0.85098, 0.843137, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_3tvvb")
+theme_override_font_sizes/font_size = 16
+text = "Out of game area
+there's nothing out here
+go back pls."
+
+[node name="menu" parent="Camera2D" instance=ExtResource("3_ped2t")]
+visible = false
+z_index = 4
+
+[node name="timers" type="Node" parent="."]
+
+[node name="sprite_timer" type="Timer" parent="timers"]
+wait_time = 0.8
+
+[node name="tick_timer" type="Timer" parent="timers"]
+wait_time = 0.1
+autostart = true
+
+[node name="bomb_sprite" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.66, 0.69)
+texture = ExtResource("15_733xs")
+
+[node name="expl_0" type="CPUParticles2D" parent="bomb_sprite"]
+position = Vector2(32.6935, 0.555704)
+rotation = -1.64934
+emitting = false
+amount = 64
+lifetime = 8.0
+one_shot = true
+speed_scale = 6.0
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.0
+initial_velocity_max = 14.0
+scale_amount_min = 8.0
+scale_amount_max = 12.0
+color = Color(0.0431373, 0.0470588, 0.0509804, 0.686275)
+
+[node name="expl_1" type="CPUParticles2D" parent="bomb_sprite"]
+position = Vector2(32.6935, 0.555704)
+rotation = -1.64934
+emitting = false
+amount = 64
+lifetime = 8.0
+one_shot = true
+speed_scale = 6.0
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.0
+initial_velocity_max = 14.0
+scale_amount_min = 8.0
+scale_amount_max = 12.0
+color = Color(0.854902, 0.85098, 0.843137, 0.686275)
+
+[node name="expl_2" type="CPUParticles2D" parent="bomb_sprite"]
+position = Vector2(32.6935, 0.555704)
+rotation = -1.64934
+emitting = false
+amount = 64
+lifetime = 8.0
+one_shot = true
+speed_scale = 6.0
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.0
+initial_velocity_max = 14.0
+scale_amount_min = 8.0
+scale_amount_max = 12.0
+color = Color(0.0431373, 0.0470588, 0.0509804, 0.686275)
+
+[node name="expl_3" type="CPUParticles2D" parent="bomb_sprite"]
+position = Vector2(32.6935, 0.555704)
+rotation = -1.64934
+emitting = false
+amount = 64
+lifetime = 8.0
+one_shot = true
+speed_scale = 6.0
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 14.0
+initial_velocity_max = 14.0
+scale_amount_min = 8.0
+scale_amount_max = 12.0
+color = Color(0.854902, 0.85098, 0.843137, 0.686275)
+
+[node name="sfx_main" parent="." instance=ExtResource("16_0s5b1")]
+
+[connection signal="area_entered" from="player_area" to="." method="_on_player_area_area_entered"]
+[connection signal="area_exited" from="player_area" to="." method="_on_player_area_area_exited"]
+[connection signal="body_entered" from="player_area" to="." method="_on_player_area_body_entered"]
+[connection signal="timeout" from="timers/sprite_timer" to="." method="_on_sprite_timer_timeout"]
+[connection signal="timeout" from="timers/tick_timer" to="." method="_on_tick_timer_timeout"]
